@@ -48,6 +48,16 @@ const showGif = (name) =>{
     .then(data => img.src = data.data.images.original.url)
     .catch(err => console.log(err))
 }
+
+async function showGif1(name){
+    try{
+        img.src = "";
+        const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=HEvpHFBnnYNw3t64KbuKWlw0mGoOfq3U&s=${name}`,{mode: 'cors'});
+        const data = await response.json();
+        img.src = data.data.images.original.url;
+    }
+    catch{err => console.log(err)}
+}
 // const btn = document.querySelector('button');
 // btn.addEventListener('click', (e) =>{
 //     e.preventDefault();
